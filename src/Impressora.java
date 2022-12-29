@@ -53,6 +53,58 @@ public class Impressora {
         return numeros;
     }
 
+    public String [] ordenar(String [] nomes) {
+        for(int i = 0; i < nomes.length; i++) {
+            for(int j = i + 1; j < nomes.length; j++) {
+                if (nomes[i].compareTo(nomes[j]) > 0) {
+                    String aux = nomes[i];
+                    nomes[i] = nomes[j];
+                    nomes[j] = aux;
+                }
+            }
+        }
+        return nomes;
+    }
 
+    private int verificarRecorrenciaNumero(Integer [] numeros, Integer numeroRecorrente) {
+        int recorrencia = 0;
+        for (Integer numero: numeros) {
+            if(numero == numeroRecorrente)
+                recorrencia++;
+        }
+        return recorrencia;
+    }
+
+    public Integer [] remove(Integer [] numeros, Integer numeroARemover) {
+        int recorrencia = verificarRecorrenciaNumero(numeros, numeroARemover);
+        Integer [] novoNumeros = new Integer[numeros.length - recorrencia];
+        int indiceNovoNumeros = 0;
+        for (int indiceNumero = 0; indiceNumero < numeros.length; indiceNumero++) {
+            if(numeros[indiceNumero] != numeroARemover) {
+                novoNumeros[indiceNovoNumeros] = numeros[indiceNumero];
+                indiceNovoNumeros++;
+            }
+        }
+        return novoNumeros;
+    }
+
+    public void matriz(){
+        Integer [] [] matriz = new Integer[3] [3];
+        int numero = 1;
+        for(int linha = 0; linha < matriz.length; linha++) {
+            for (int coluna = 0; coluna < matriz[linha].length; coluna++) {
+                matriz[linha][coluna] = numero;
+                numero++;
+            }
+        }
+
+        for (int linha = 0; linha < matriz.length; linha++) {
+            for (int coluna = 0; coluna < matriz[linha].length; coluna++) {
+                System.out.print(matriz[linha][coluna] + " ");
+            }
+            System.out.println("");
+        }
+
+    }
 
 }
