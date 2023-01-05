@@ -2,6 +2,7 @@ package br.com.ecommerce;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
 public class Carrinho {
@@ -10,7 +11,7 @@ public class Carrinho {
     private List<Item> itens;
 
     public Carrinho() {
-        this.itens = new ArrayList<>();
+        this.itens = new LinkedList<>();
     }
 
     public void adicionarItem(Item item) {
@@ -36,6 +37,5 @@ public class Carrinho {
 
         System.out.println(sb.toString());
     }
-
 
 }
